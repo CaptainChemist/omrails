@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
   <title>Omrails</title>
@@ -7,10 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	 
 
 	<%= render 'layouts/header' %>
-	<%= yield %>
-	<%= render 'layouts/footer' %>
+	<div class="container">
+		<%= yield %>
+		<%= render 'layouts/footer' %>
+	</div>
 
 </body>
 </html>
