@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.2.0.beta2'
 gem 'jquery-rails', '~> 4.0.0.beta2'
 gem 'devise'
+gem 'simple_form'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
