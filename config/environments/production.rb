@@ -76,6 +76,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #fix!
-  config.action_mailer.default_url_options = { host: 'omrails-scj.herokuapp.com', port: 3000}
+  config.action_mailer.default_url_options = { :host => 'omrails-scj.herokuapp.com:3000'}
 
 end
