@@ -19,3 +19,6 @@ doc/
 *~
 .DS_STORE
 .idea
+
+#ignore paperclip
+/public/system
