@@ -5,7 +5,7 @@ class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
 
   def index
-    @pins = Pin.all
+    @pins = Pin.order("created_at desc").all
     respond_with(@pins)
   end
 
