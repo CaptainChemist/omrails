@@ -1,4 +1,6 @@
 class PinsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+  before_action :require_permission, only: [:edit,:destroy,:update]
   respond_to :html, :xml, :json
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
 
@@ -12,25 +14,28 @@ class PinsController < ApplicationController
   end
 
   def new
-    @pin = Pin.new
+    @pin = current_user.pins.new 
     respond_with(@pin)
   end
 
   def edit
+    @pin = current_user.pins.find(params[:id])
   end
 
   def create
-    @pin = Pin.new(pin_params)
+    @pin = current_user.pins.new(pin_params)
     @pin.save
     respond_with(@pin)
   end
 
   def update
+    @pin = current_user.pins.find(params[:id])
     @pin.update(pin_params)
     respond_with(@pin)
   end
 
   def destroy
+    @pin = current_user.pins.find(params[:id])
     @pin.destroy
     respond_with(@pin)
   end
@@ -42,5 +47,11 @@ class PinsController < ApplicationController
 
     def pin_params
       params.require(:pin).permit(:description)
+    end
+
+    def require_permission
+        if current_user != Pin.find(params[:id]).user
+          redirect_to pins_path
+        end
     end
 end
