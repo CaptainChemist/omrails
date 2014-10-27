@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :pins
 
-  root 'pages#home'
+  root 'pins#index'
   get 'about' => 'pages#about'
   #get 'pins' => 'pins#index'
 
